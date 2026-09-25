@@ -1,0 +1,30 @@
+data:
+  path: /Users/vaibhavjha/Documents/sklearn/diabetes+130-us+hospitals+for+years+1999-2008/diabetic_data.csv
+  missing_value: "?"
+  patient_id_column: patient_nbr
+
+features:
+  max_missing_fraction: 0.60
+  target_column: readmitted
+
+split:
+  test_size: 0.20
+  validation_size_of_development: 0.25
+  random_state: 22
+
+model:
+  logistic_regression:
+    max_iter: 2000
+    class_weight: balanced
+    solver: saga
+
+  random_forest:
+    n_estimators: 200
+    class_weight: balanced
+    n_jobs: -1
+
+evaluation:
+  positive_class: Readmitted_within_30_days
+  negative_class: No_30_day_readmission
+  selected_model: logistic_regression
+  locked_threshold: 0.35
